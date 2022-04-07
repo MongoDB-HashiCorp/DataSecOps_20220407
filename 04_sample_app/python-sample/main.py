@@ -1,6 +1,7 @@
 import sys
 import base64
 import hvac
+import os
 from pymongo import MongoClient
 import datetime
 
@@ -16,8 +17,8 @@ def base64ify(bytes_or_str):
   else:
     return output_bytes
 
-str_url   = "https://gs-cluster.vault.50dc8a23-a8c8-4982-8053-6ba3cf2f254f.aws.hashicorp.cloud:8200"
-str_token = "s.Zxf7WduhMaxmob5L2zxYWoCd.B4qAX"
+str_url   = os.environ['VAULT_ADDR']
+str_token = os.environ['VAULT_TOKEN']
 vault_client = hvac.Client(
   url=str_url,
   token=str_token,

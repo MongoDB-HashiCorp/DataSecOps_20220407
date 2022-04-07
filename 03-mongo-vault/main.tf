@@ -83,6 +83,10 @@ resource "vault_database_secret_backend_connection" "atlas" {
 }
 
 resource "vault_database_secret_backend_role" "dev" {
+  depends_on = [
+    vault_generic_secret.atlas
+  ]
+  
   backend = vault_mount.atlas.path
   name    = "dev"
   db_name = vault_database_secret_backend_connection.atlas.name

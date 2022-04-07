@@ -15,3 +15,10 @@
 - MongoDB Atlas
 - AWS
 
+## MongoDB Atlas AWS private link 안내
+
+<https://www.mongodb.com/docs/atlas/security-private-endpoint/>
+
+```bash
+nslookup -type=SRV _mongodb._tcp.gs-cluster-pl-0.qkcjo.mongodb.net
+```
