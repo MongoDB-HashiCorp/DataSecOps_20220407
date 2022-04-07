@@ -40,7 +40,7 @@ resource "vault_mount" "kvv2" {
 }
 
 resource "vault_generic_secret" "atlas" {
-  path = "secret/atlas-info"
+  path = "${vault_mount.kvv2.path}/atlas-info"
 
   data_json = <<EOT
 {

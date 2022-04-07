@@ -22,3 +22,7 @@ output "connection_strings_standard" {
 output "plstring" {
   value = mongodbatlas_cluster.mycluster.connection_strings[0].private_endpoint[0].srv_connection_string
 }
+
+output "plstring_nslookup" {
+  value = "nslookup -type=SRV _mongodb._tcp.${mongodbatlas_cluster.mycluster.connection_strings[0].private_endpoint[0].srv_connection_string}"
+}
